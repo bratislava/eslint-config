@@ -6,11 +6,11 @@ Shareable ESLint configurations for Bratislava projects. Built for ESLint v9 fla
 
 This package provides three ESLint configurations:
 
-| Config | Description | Use Case |
-|--------|-------------|----------|
-| `@bratislava/eslint-config/nest` | NestJS backend configuration | NestJS APIs and services |
-| `@bratislava/eslint-config/next` | Next.js frontend configuration | Next.js applications |
-| `@bratislava/eslint-config/react` | React configuration | React apps without Next.js |
+| Config                            | Description                    | Use Case                   |
+| --------------------------------- | ------------------------------ | -------------------------- |
+| `@bratislava/eslint-config/nest`  | NestJS backend configuration   | NestJS APIs and services   |
+| `@bratislava/eslint-config/next`  | Next.js frontend configuration | Next.js applications       |
+| `@bratislava/eslint-config/react` | React configuration            | React apps without Next.js |
 
 ## Installation
 
@@ -25,20 +25,20 @@ npm install --save-dev @bratislava/eslint-config eslint typescript
 Create `eslint.config.mjs` in your project root:
 
 ```javascript
-import { createNestConfig } from '@bratislava/eslint-config/nest'
+import { createNestConfig } from "@bratislava/eslint-config/nest";
 
 export default createNestConfig({
   tsconfigRootDir: import.meta.dirname,
-  ignores: ['src/generated-clients/*'],
-})
+  ignores: ["src/generated-clients/*"],
+});
 ```
 
 Or use the default configuration:
 
 ```javascript
-import nestConfig from '@bratislava/eslint-config/nest'
+import nestConfig from "@bratislava/eslint-config/nest";
 
-export default nestConfig
+export default nestConfig;
 ```
 
 ### Next.js Projects
@@ -46,19 +46,19 @@ export default nestConfig
 Create `eslint.config.mjs` in your project root:
 
 ```javascript
-import { createNextConfig } from '@bratislava/eslint-config/next'
+import { createNextConfig } from "@bratislava/eslint-config/next";
 
 export default createNextConfig({
-  ignores: ['services/graphql/**'],
-})
+  ignores: ["services/graphql/**"],
+});
 ```
 
 Or use the default configuration:
 
 ```javascript
-import nextConfig from '@bratislava/eslint-config/next'
+import nextConfig from "@bratislava/eslint-config/next";
 
-export default nextConfig
+export default nextConfig;
 ```
 
 ### React Projects (without Next.js)
@@ -66,19 +66,19 @@ export default nextConfig
 Create `eslint.config.mjs` in your project root:
 
 ```javascript
-import { createReactConfig } from '@bratislava/eslint-config/react'
+import { createReactConfig } from "@bratislava/eslint-config/react";
 
 export default createReactConfig({
-  ignores: ['src/generated/**'],
-})
+  ignores: ["src/generated/**"],
+});
 ```
 
 Or use the default configuration:
 
 ```javascript
-import reactConfig from '@bratislava/eslint-config/react'
+import reactConfig from "@bratislava/eslint-config/react";
 
-export default reactConfig
+export default reactConfig;
 ```
 
 ## What's Included
@@ -130,7 +130,7 @@ Everything in base, plus:
 ### Extending with Additional Rules
 
 ```javascript
-import { createNestConfig } from '@bratislava/eslint-config/nest'
+import { createNestConfig } from "@bratislava/eslint-config/nest";
 
 export default [
   ...createNestConfig({
@@ -139,10 +139,10 @@ export default [
   {
     // Your custom rules
     rules: {
-      'no-console': 'warn', // Override to warn instead of error
+      "no-console": "warn", // Override to warn instead of error
     },
   },
-]
+];
 ```
 
 ### Using Individual Exports
@@ -155,7 +155,7 @@ import {
   eslintRules,
   sonarjsRules,
   simpleImportSortConfig,
-} from '@bratislava/eslint-config'
+} from "@bratislava/eslint-config";
 ```
 
 ## Peer Dependencies
@@ -189,19 +189,11 @@ npm version major  # for breaking changes
 
 2. **Publish the package**:
 
+You'll need 2FA setup on your npm account.
+
 ```bash
 npm publish --access public
 ```
-
-### First-time Setup for @bratislava Scope
-
-If the `@bratislava` scope doesn't exist yet:
-
-1. Go to https://www.npmjs.com/org/create
-2. Create organization with name `bratislava`
-3. Add team members who need publish access
-
-For existing organization, ensure your npm user has publish rights.
 
 ## Development
 
@@ -225,7 +217,7 @@ npm update
 
 ## License
 
-MIT
+EUPL-1.2
 
 ## Contributing
 

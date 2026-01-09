@@ -14,7 +14,7 @@
     "react"
   ],
   "author": "Bratislava Inovacie",
-  "license": "MIT",
+  "license": "EUPL-1.2",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
