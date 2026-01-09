@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-monorepo",
-  "version": "0.2.0",
+  "version": "0.3.2",
   "private": true,
   "description": "Shareable ESLint configurations for Bratislava projects",
   "license": "EUPL-1.2",
@@ -15,7 +15,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "publish:all": "npm publish --workspace packages/base && npm publish --workspace packages/nest && npm publish --workspace packages/next && npm publish --workspace packages/react"
+    "publish:all": "npm publish --access public --workspace packages/base && npm publish --access public --workspace packages/nest && npm publish --access public --workspace packages/next && npm publish --access public --workspace packages/react"
   },
   "devDependencies": {
     "@eslint/js": "9.34.0",

@@ -60,6 +60,7 @@ export const typescriptRules = {
   "@typescript-eslint/promise-function-async": "error",
   "@typescript-eslint/require-array-sort-compare": "error",
   "@typescript-eslint/switch-exhaustiveness-check": "error",
+  "@typescript-eslint/no-useless-default-assignment": "error",
 };
 
 /**

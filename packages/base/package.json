@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/eslint-config",
-  "version": "0.2.0",
+  "version": "0.3.2",
   "description": "Base ESLint configuration for Bratislava projects",
   "keywords": [
     "eslint",
@@ -8,7 +8,7 @@
     "eslint-config",
     "bratislava"
   ],
-  "author": "Bratislava Inovacie",
+  "author": "Bratislava",
   "license": "EUPL-1.2",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-sonarjs": "3.0.5",
     "globals": "16.5.0",
-    "typescript-eslint": "8.42.0"
+    "typescript-eslint": "8.52.0"
   },
   "engines": {
     "node": ">=18"
