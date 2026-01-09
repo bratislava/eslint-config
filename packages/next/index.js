@@ -182,7 +182,10 @@ export function createNextConfig(options = {}) {
 
     // Next.js pages directory config
     {
-      files: ["**/pages/**/*.{js,jsx,ts,tsx}", "**/src/pages/**/*.{js,jsx,ts,tsx}"],
+      files: [
+        "**/pages/**/*.{js,jsx,ts,tsx}",
+        "**/src/pages/**/*.{js,jsx,ts,tsx}",
+      ],
       rules: {
         "react/display-name": "off",
       },
@@ -205,7 +208,7 @@ export function createNextConfig(options = {}) {
         "out/**",
         ...ignores,
       ],
-    },
+    }
   );
 }
 

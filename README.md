@@ -6,12 +6,12 @@ Shareable ESLint configurations for Bratislava projects. Built for ESLint v9 fla
 
 This monorepo contains four separate packages:
 
-| Package                           | Description                    | Use Case                   |
-| --------------------------------- | ------------------------------ | -------------------------- |
+| Package                           | Description                    | Use Case                      |
+| --------------------------------- | ------------------------------ | ----------------------------- |
 | `@bratislava/eslint-config`       | Base configuration             | Shared rules for all projects |
-| `@bratislava/eslint-config-nest`  | NestJS backend configuration   | NestJS APIs and services   |
-| `@bratislava/eslint-config-next`  | Next.js frontend configuration | Next.js applications       |
-| `@bratislava/eslint-config-react` | React configuration            | React apps without Next.js |
+| `@bratislava/eslint-config-nest`  | NestJS backend configuration   | NestJS APIs and services      |
+| `@bratislava/eslint-config-next`  | Next.js frontend configuration | Next.js applications          |
+| `@bratislava/eslint-config-react` | React configuration            | React apps without Next.js    |
 
 Each package only includes dependencies it needs, so you won't install NestJS plugins when using Next.js config.
 
