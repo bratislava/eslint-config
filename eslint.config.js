@@ -1,4 +1,5 @@
 import eslint from "@eslint/js";
+import markdown from "@eslint/markdown";
 import prettier from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
@@ -10,6 +11,7 @@ import globals from "globals";
 export default [
   eslint.configs.recommended,
   prettier,
+  ...markdown.configs.recommended,
   {
     plugins: {
       "simple-import-sort": simpleImportSort,
@@ -29,6 +31,13 @@ export default [
       "prefer-const": "error",
       "no-var": "error",
       eqeqeq: ["error", "smart"],
+    },
+  },
+  {
+    // Disable rules that don't work with markdown
+    files: ["**/*.md"],
+    rules: {
+      "no-irregular-whitespace": "off",
     },
   },
   {
