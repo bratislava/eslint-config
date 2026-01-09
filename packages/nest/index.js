@@ -1,21 +1,9 @@
 /**
- * @bratislava/eslint-config/nest
+ * @bratislava/eslint-config-nest
  *
  * ESLint configuration for NestJS backend projects.
  * Extends base config with NestJS-specific rules and plugins.
  */
-
-import eslintNestJs from '@darraghor/eslint-plugin-nestjs-typed'
-import eslint from '@eslint/js'
-import json from '@eslint/json'
-import markdown from '@eslint/markdown'
-import prettier from 'eslint-config-prettier'
-import jest from 'eslint-plugin-jest'
-import noUnsanitized from 'eslint-plugin-no-unsanitized'
-import security from 'eslint-plugin-security'
-import sonarjs from 'eslint-plugin-sonarjs'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
 
 import {
   disabledRules,
@@ -23,40 +11,52 @@ import {
   simpleImportSortConfig,
   sonarjsRules,
   typescriptRules,
-} from './index.js'
+} from "@bratislava/eslint-config";
+import eslintNestJs from "@darraghor/eslint-plugin-nestjs-typed";
+import eslint from "@eslint/js";
+import json from "@eslint/json";
+import markdown from "@eslint/markdown";
+import prettier from "eslint-config-prettier";
+import jest from "eslint-plugin-jest";
+import noUnsanitized from "eslint-plugin-no-unsanitized";
+import security from "eslint-plugin-security";
+import sonarjs from "eslint-plugin-sonarjs";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 /**
  * NestJS-specific rules
  */
 const nestRules = {
   // We're used to style without this, extra typing with little value
-  '@darraghor/nestjs-typed/api-property-returning-array-should-set-array': 'off',
-}
+  "@darraghor/nestjs-typed/api-property-returning-array-should-set-array":
+    "off",
+};
 
 /**
  * Backend-specific rules
  */
 const backendRules = {
   // Enforce logger use instead of console
-  'no-console': 'error',
-}
+  "no-console": "error",
+};
 
 /**
  * Jest test file configuration
  */
 const jestConfig = {
-  files: ['**/*.spec.ts', '**/*.test.ts'],
+  files: ["**/*.spec.ts", "**/*.test.ts"],
   plugins: {
     jest,
   },
   rules: {
     // Use jest version of unbound-method
-    '@typescript-eslint/unbound-method': 'off',
-    'jest/unbound-method': 'error',
+    "@typescript-eslint/unbound-method": "off",
+    "jest/unbound-method": "error",
     // Allow unused vars in tests (common with mocking)
-    '@typescript-eslint/no-unused-vars': 'warn',
+    "@typescript-eslint/no-unused-vars": "warn",
   },
-}
+};
 
 /**
  * Creates a NestJS ESLint configuration.
@@ -68,7 +68,7 @@ const jestConfig = {
  *
  * @example
  * // eslint.config.mjs
- * import { createNestConfig } from '@bratislava/eslint-config/nest'
+ * import { createNestConfig } from '@bratislava/eslint-config-nest'
  *
  * export default createNestConfig({
  *   tsconfigRootDir: import.meta.dirname,
@@ -76,7 +76,7 @@ const jestConfig = {
  * })
  */
 export function createNestConfig(options = {}) {
-  const { tsconfigRootDir = process.cwd(), ignores = [] } = options
+  const { tsconfigRootDir = process.cwd(), ignores = [] } = options;
 
   return tseslint.config(
     // Base configs
@@ -99,9 +99,9 @@ export function createNestConfig(options = {}) {
       },
     },
     {
-      files: ['**/*.json'],
-      ignores: ['package-lock.json'],
-      language: 'json/json',
+      files: ["**/*.json"],
+      ignores: ["package-lock.json"],
+      language: "json/json",
       ...json.configs.recommended,
     },
 
@@ -140,23 +140,23 @@ export function createNestConfig(options = {}) {
     // Default ignores
     {
       ignores: [
-        'dist/**',
-        'node_modules/**',
-        'coverage/**',
-        '*.config.js',
-        '*.config.mjs',
-        '*.config.ts',
-        'eslint.config.js',
-        'eslint.config.mjs',
-        'eslint.config.ts',
+        "dist/**",
+        "node_modules/**",
+        "coverage/**",
+        "*.config.js",
+        "*.config.mjs",
+        "*.config.ts",
+        "eslint.config.js",
+        "eslint.config.mjs",
+        "eslint.config.ts",
         ...ignores,
       ],
     },
-  )
+  );
 }
 
 /**
  * Default NestJS configuration.
  * For customization, use createNestConfig() instead.
  */
-export default createNestConfig()
+export default createNestConfig();
