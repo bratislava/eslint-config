@@ -5,10 +5,10 @@
  * Extends base config with NestJS-specific rules and plugins.
  */
 
+import eslintNestJs from '@darraghor/eslint-plugin-nestjs-typed'
 import eslint from '@eslint/js'
 import json from '@eslint/json'
 import markdown from '@eslint/markdown'
-import eslintNestJs from '@darraghor/eslint-plugin-nestjs-typed'
 import prettier from 'eslint-config-prettier'
 import jest from 'eslint-plugin-jest'
 import noUnsanitized from 'eslint-plugin-no-unsanitized'
@@ -18,11 +18,11 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 import {
-  simpleImportSortConfig,
-  typescriptRules,
-  eslintRules,
-  sonarjsRules,
   disabledRules,
+  eslintRules,
+  simpleImportSortConfig,
+  sonarjsRules,
+  typescriptRules,
 } from './index.js'
 
 /**

@@ -21,11 +21,11 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 import {
-  simpleImportSortConfig,
-  typescriptRules,
-  eslintRules,
-  sonarjsRules,
   disabledRules,
+  eslintRules,
+  simpleImportSortConfig,
+  sonarjsRules,
+  typescriptRules,
 } from './index.js'
 
 /**

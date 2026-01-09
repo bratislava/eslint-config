@@ -15,9 +15,14 @@
   ],
   "author": "Bratislava Inovacie",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bratislava/eslint-config.git"
+    "url": "https://github.com/bratislava/eslint-config.git",
+    "branch": "master"
   },
   "type": "module",
   "exports": {

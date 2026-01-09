@@ -19,14 +19,13 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 import {
-  simpleImportSortConfig,
-  typescriptRules,
-  eslintRules,
-  sonarjsRules,
   disabledRules,
+  eslintRules,
+  simpleImportSortConfig,
+  sonarjsRules,
+  typescriptRules,
 } from './index.js'
-
-import { reactRules, importRules, jsxA11yRules } from './next.js'
+import { importRules, jsxA11yRules,reactRules } from './next.js'
 
 /**
  * Frontend-specific rules (same as Next.js config, without Next.js-specific rules)
