@@ -22,6 +22,7 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import security from "eslint-plugin-security";
 import sonarjs from "eslint-plugin-sonarjs";
+import tailwindcss from "eslint-plugin-tailwindcss";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -114,6 +115,7 @@ export function createReactConfig(options = {}) {
     noUnsanitized.configs.recommended,
     sonarjs.configs.recommended,
     tanstackQuery.configs["flat/recommended"],
+    ...tailwindcss.configs["flat/recommended"],
 
     // React and related plugins
     {
