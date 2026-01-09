@@ -6,22 +6,17 @@
  */
 
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
+import tanstackQuery from '@tanstack/eslint-plugin-query'
 import prettier from 'eslint-config-prettier'
-import globals from 'globals'
-
-// React plugins
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
 import importPlugin from 'eslint-plugin-import'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
-
-// Additional plugins
-import security from 'eslint-plugin-security'
 import noUnsanitized from 'eslint-plugin-no-unsanitized'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import security from 'eslint-plugin-security'
 import sonarjs from 'eslint-plugin-sonarjs'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import tanstackQuery from '@tanstack/eslint-plugin-query'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 import {
   simpleImportSortConfig,

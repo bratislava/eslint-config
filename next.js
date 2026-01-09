@@ -6,27 +6,19 @@
  */
 
 import eslint from '@eslint/js'
-import { defineConfig } from 'eslint/config'
-import tseslint from 'typescript-eslint'
-import prettier from 'eslint-config-prettier'
-import globals from 'globals'
-
-// Next.js plugin
 import nextPlugin from '@next/eslint-plugin-next'
-
-// React plugins
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
+import tanstackQuery from '@tanstack/eslint-plugin-query'
+import prettier from 'eslint-config-prettier'
+import i18next from 'eslint-plugin-i18next'
 import importPlugin from 'eslint-plugin-import'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
-
-// Additional plugins
-import security from 'eslint-plugin-security'
 import noUnsanitized from 'eslint-plugin-no-unsanitized'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import security from 'eslint-plugin-security'
 import sonarjs from 'eslint-plugin-sonarjs'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import i18next from 'eslint-plugin-i18next'
-import tanstackQuery from '@tanstack/eslint-plugin-query'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 import {
   simpleImportSortConfig,
@@ -125,7 +117,7 @@ const frontendRules = {
 export function createNextConfig(options = {}) {
   const { ignores = [] } = options
 
-  return defineConfig(
+  return tseslint.config(
     // Next.js flat config
     nextPlugin.flatConfig.recommended,
     nextPlugin.flatConfig.coreWebVitals,

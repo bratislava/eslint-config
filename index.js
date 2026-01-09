@@ -6,13 +6,13 @@
  */
 
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
 import prettier from 'eslint-config-prettier'
-import security from 'eslint-plugin-security'
 import noUnsanitized from 'eslint-plugin-no-unsanitized'
-import sonarjs from 'eslint-plugin-sonarjs'
+import security from 'eslint-plugin-security'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import sonarjs from 'eslint-plugin-sonarjs'
 import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
 /**
  * Simple import sort plugin configuration
