@@ -78,6 +78,7 @@ export const eslintRules = {
   "default-param-last": "error",
   "dot-notation": "error",
   eqeqeq: ["error", "smart"],
+  "guard-for-in": "error",
   "new-cap": ["error", { capIsNew: false }],
   "no-caller": "error",
   "no-div-regex": "error",
@@ -86,6 +87,7 @@ export const eslintRules = {
   "no-invalid-this": "error",
   "no-lonely-if": "error",
   "no-param-reassign": "error",
+  "no-restricted-syntax": "error",
   "no-return-assign": "error",
   "no-unneeded-ternary": "error",
   "no-unused-expressions": "error",
@@ -111,6 +113,7 @@ export const sonarjsRules = {
   "sonarjs/no-useless-catch": "off",
   "sonarjs/no-commented-code": "off",
   "sonarjs/no-nested-conditional": "off",
+  "sonarjs/no-unused-vars": "off", // handled by @typescript-eslint/no-unused-vars
   "sonarjs/fixme-tag": "warn",
   "sonarjs/deprecation": "warn",
 };

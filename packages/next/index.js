@@ -17,7 +17,7 @@ import tailwindcss from "eslint-plugin-tailwindcss";
 import globals from "globals";
 
 /**
- * React-specific rules
+ * React-specific rules overrides
  */
 export const reactRules = {
   "react/function-component-definition": [
@@ -28,6 +28,10 @@ export const reactRules = {
   "react/react-in-jsx-scope": "off",
   "react/jsx-no-useless-fragment": [2, { allowExpressions: true }],
   "react/display-name": "off",
+  "react/no-array-index-key": "warn",
+  "react/destructuring-assignment": "warn",
+  "react/no-unused-prop-types": "warn",
+  "react/style-prop-object": "warn",
 };
 
 /**
@@ -42,14 +46,6 @@ export const importRules = {
   "import/no-duplicates": "off",
   "import/no-named-as-default": "off",
   "import/no-named-as-default-member": "off",
-};
-
-/**
- * JSX A11y rules
- */
-export const jsxA11yRules = {
-  "jsx-a11y/anchor-is-valid": "off",
-  "jsx-a11y/img-redundant-alt": "warn",
 };
 
 /**
@@ -86,6 +82,8 @@ const frontendRules = {
   ],
   "@typescript-eslint/no-floating-promises": "warn",
   "@typescript-eslint/no-confusing-void-expression": "off",
+
+  "jsx-a11y/control-has-associated-label": "warn",
 };
 
 /**
@@ -114,21 +112,21 @@ export function createNextConfig(options = {}) {
     nextPlugin.flatConfig.recommended,
     nextPlugin.flatConfig.coreWebVitals,
 
-    // React hooks recommended config (includes plugin and rules)
-    reactHooks.configs["recommended-latest"],
+    // React & React hooks recommended configs
+    reactHooks.configs.flat.recommended,
+    react.configs.flat.recommended,
+    react.configs.flat["jsx-runtime"], // Recommended by the docs if using React 17+
 
-    // React and related plugins
+    // JSX A11y recommended config
+    jsxA11y.flatConfigs.recommended,
+
+    // Import rules and plugins
     {
       plugins: {
-        react,
         import: importPlugin,
-        "jsx-a11y": jsxA11y,
       },
       rules: {
-        ...reactRules,
         ...importRules,
-        ...jsxA11yRules,
-        ...nextRules,
       },
     },
 
@@ -147,11 +145,13 @@ export function createNextConfig(options = {}) {
     ...tanstackQuery.configs["flat/recommended"],
     ...tailwindcss.configs["flat/recommended"],
 
-    // Frontend-specific rules
+    // Frontend rules and overrieds
     {
       rules: {
         ...frontendRules,
-        "sonarjs/different-types-comparison": "off",
+        ...reactRules,
+        ...nextRules,
+        "sonarjs/different-types-comparison": "off", // TODO consider removing
       },
     },
 
