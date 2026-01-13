@@ -5,28 +5,16 @@
  * Extends base config with Next.js, React, and i18n-specific rules.
  */
 
-import {
-  disabledRules,
-  eslintRules,
-  simpleImportSortConfig,
-  sonarjsRules,
-  typescriptRules,
-} from "@bratislava/eslint-config";
-import eslint from "@eslint/js";
+import { baseConfig } from "@bratislava/eslint-config";
 import nextPlugin from "@next/eslint-plugin-next";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
-import prettier from "eslint-config-prettier";
 import i18next from "eslint-plugin-i18next";
 import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
-import noUnsanitized from "eslint-plugin-no-unsanitized";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import security from "eslint-plugin-security";
-import sonarjs from "eslint-plugin-sonarjs";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import globals from "globals";
-import tseslint from "typescript-eslint";
 
 /**
  * React-specific rules
@@ -119,6 +107,9 @@ export function createNextConfig(options = {}) {
   const { ignores = [] } = options;
 
   return [
+    // Base configuration (eslint, typescript, prettier, security, sonarjs, etc.)
+    ...baseConfig,
+
     // Next.js flat config
     nextPlugin.flatConfig.recommended,
     nextPlugin.flatConfig.coreWebVitals,
@@ -141,43 +132,25 @@ export function createNextConfig(options = {}) {
       },
     },
 
-    // Language options
+    // Language options (extend base with browser/node globals)
     {
       languageOptions: {
-        parserOptions: {
-          projectService: true,
-        },
         globals: {
           ...globals.browser,
           ...globals.node,
-          ...globals.es2021,
         },
       },
     },
 
-    // Base configs
-    eslint.configs.recommended,
-    ...tseslint.configs.strictTypeChecked,
-    ...tseslint.configs.stylistic,
-    prettier,
-    simpleImportSortConfig,
-    security.configs.recommended,
-    noUnsanitized.configs.recommended,
-    sonarjs.configs.recommended,
+    // Next.js specific configs
     i18next.configs["flat/recommended"],
-    tanstackQuery.configs["flat/recommended"],
+    ...tanstackQuery.configs["flat/recommended"],
     ...tailwindcss.configs["flat/recommended"],
 
-    // Main rules
+    // Frontend-specific rules
     {
       rules: {
-        ...typescriptRules,
-        ...eslintRules,
-        ...sonarjsRules,
-        ...disabledRules,
         ...frontendRules,
-
-        // SonarJS additional config for frontend
         "sonarjs/different-types-comparison": "off",
       },
     },

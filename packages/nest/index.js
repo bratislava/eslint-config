@@ -5,24 +5,12 @@
  * Extends base config with NestJS-specific rules and plugins.
  */
 
-import {
-  disabledRules,
-  eslintRules,
-  simpleImportSortConfig,
-  sonarjsRules,
-  typescriptRules,
-} from "@bratislava/eslint-config";
+import { baseConfig } from "@bratislava/eslint-config";
 import eslintNestJs from "@darraghor/eslint-plugin-nestjs-typed";
-import eslint from "@eslint/js";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
-import prettier from "eslint-config-prettier";
 import jest from "eslint-plugin-jest";
-import noUnsanitized from "eslint-plugin-no-unsanitized";
-import security from "eslint-plugin-security";
-import sonarjs from "eslint-plugin-sonarjs";
 import globals from "globals";
-import tseslint from "typescript-eslint";
 
 /**
  * NestJS-specific rules
@@ -78,15 +66,11 @@ const jestConfig = {
 export function createNestConfig(options = {}) {
   const { tsconfigRootDir = process.cwd(), ignores = [] } = options;
 
-  return tseslint.config(
-    // Base configs
-    eslint.configs.recommended,
-    tseslint.configs.strictTypeChecked,
-    tseslint.configs.stylistic,
-    prettier,
-    security.configs.recommended,
-    noUnsanitized.configs.recommended,
-    sonarjs.configs.recommended,
+  return [
+    // Base configuration (eslint, typescript, prettier, security, sonarjs, etc.)
+    ...baseConfig,
+
+    // NestJS plugin
     eslintNestJs.configs.flatRecommended,
 
     // Markdown support
@@ -105,30 +89,21 @@ export function createNestConfig(options = {}) {
       ...json.configs.recommended,
     },
 
-    // Import sorting
-    simpleImportSortConfig,
-
-    // Language options
+    // Language options (extend base with node globals and tsconfigRootDir)
     {
       languageOptions: {
         parserOptions: {
-          projectService: true,
           tsconfigRootDir,
         },
         globals: {
           ...globals.node,
-          ...globals.es2021,
         },
       },
     },
 
-    // Main rules
+    // NestJS and backend-specific rules
     {
       rules: {
-        ...typescriptRules,
-        ...eslintRules,
-        ...sonarjsRules,
-        ...disabledRules,
         ...nestRules,
         ...backendRules,
       },
@@ -152,7 +127,7 @@ export function createNestConfig(options = {}) {
         ...ignores,
       ],
     },
-  );
+  ];
 }
 
 /**

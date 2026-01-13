@@ -133,8 +133,8 @@ export const disabledRules = {
  */
 export const baseConfig = [
   eslint.configs.recommended,
-  tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylistic,
+  ...tseslint.configs.strictTypeChecked,
+  ...tseslint.configs.stylistic,
   prettier,
   simpleImportSortConfig,
   security.configs.recommended,

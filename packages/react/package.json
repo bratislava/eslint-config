@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/eslint-config-react",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "ESLint configuration for React projects (without Next.js)",
   "keywords": [
     "eslint",
@@ -29,20 +29,14 @@
     "typescript": ">= 5"
   },
   "dependencies": {
-    "@bratislava/eslint-config": "0.5.0",
-    "@eslint/js": "9.34.0",
+    "@bratislava/eslint-config": "0.5.1",
     "@tanstack/eslint-plugin-query": "5.91.2",
-    "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-no-unsanitized": "4.1.4",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
-    "eslint-plugin-security": "3.0.1",
-    "eslint-plugin-sonarjs": "3.0.5",
     "eslint-plugin-tailwindcss": "3.18.2",
-    "globals": "16.5.0",
-    "typescript-eslint": "8.52.0"
+    "globals": "16.5.0"
   },
   "engines": {
     "node": ">=18"

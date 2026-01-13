@@ -5,26 +5,14 @@
  * Extends base config with React-specific rules and plugins.
  */
 
-import {
-  disabledRules,
-  eslintRules,
-  simpleImportSortConfig,
-  sonarjsRules,
-  typescriptRules,
-} from "@bratislava/eslint-config";
-import eslint from "@eslint/js";
+import { baseConfig } from "@bratislava/eslint-config";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
-import prettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
-import noUnsanitized from "eslint-plugin-no-unsanitized";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import security from "eslint-plugin-security";
-import sonarjs from "eslint-plugin-sonarjs";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import globals from "globals";
-import tseslint from "typescript-eslint";
 
 /**
  * React-specific rules
@@ -106,16 +94,11 @@ export function createReactConfig(options = {}) {
   const { ignores = [] } = options;
 
   return [
-    // Base configs
-    eslint.configs.recommended,
-    ...tseslint.configs.strictTypeChecked,
-    ...tseslint.configs.stylistic,
-    prettier,
-    simpleImportSortConfig,
-    security.configs.recommended,
-    noUnsanitized.configs.recommended,
-    sonarjs.configs.recommended,
-    tanstackQuery.configs["flat/recommended"],
+    // Base configuration (eslint, typescript, prettier, security, sonarjs, etc.)
+    ...baseConfig,
+
+    // React-specific configs
+    ...tanstackQuery.configs["flat/recommended"],
     ...tailwindcss.configs["flat/recommended"],
 
     // React hooks recommended config (includes plugin and rules)
@@ -135,18 +118,16 @@ export function createReactConfig(options = {}) {
       },
     },
 
-    // Language options
+    // Language options (extend base with browser globals and JSX)
     {
       languageOptions: {
         parserOptions: {
-          projectService: true,
           ecmaFeatures: {
             jsx: true,
           },
         },
         globals: {
           ...globals.browser,
-          ...globals.es2021,
         },
       },
     },
@@ -160,16 +141,10 @@ export function createReactConfig(options = {}) {
       },
     },
 
-    // Main rules
+    // Frontend-specific rules
     {
       rules: {
-        ...typescriptRules,
-        ...eslintRules,
-        ...sonarjsRules,
-        ...disabledRules,
         ...frontendRules,
-
-        // SonarJS additional config for frontend
         "sonarjs/different-types-comparison": "off",
       },
     },
