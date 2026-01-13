@@ -115,7 +115,7 @@ export function createNextConfig(options = {}) {
     nextPlugin.flatConfig.coreWebVitals,
 
     // React hooks recommended config (includes plugin and rules)
-    reactHooks.configs.flat.recommended,
+    reactHooks.configs["recommended-latest"],
 
     // React and related plugins
     {
