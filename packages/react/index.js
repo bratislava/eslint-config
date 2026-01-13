@@ -84,6 +84,7 @@ const frontendRules = {
     { checksVoidReturn: { attributes: false } },
   ],
   "@typescript-eslint/no-floating-promises": "warn",
+  "@typescript-eslint/no-confusing-void-expression": "off",
 };
 
 /**
@@ -104,11 +105,11 @@ const frontendRules = {
 export function createReactConfig(options = {}) {
   const { ignores = [] } = options;
 
-  return tseslint.config(
+  return [
     // Base configs
     eslint.configs.recommended,
-    tseslint.configs.strictTypeChecked,
-    tseslint.configs.stylistic,
+    ...tseslint.configs.strictTypeChecked,
+    ...tseslint.configs.stylistic,
     prettier,
     simpleImportSortConfig,
     security.configs.recommended,
@@ -117,11 +118,13 @@ export function createReactConfig(options = {}) {
     tanstackQuery.configs["flat/recommended"],
     ...tailwindcss.configs["flat/recommended"],
 
+    // React hooks recommended config (includes plugin and rules)
+    reactHooks.configs.flat.recommended,
+
     // React and related plugins
     {
       plugins: {
         react,
-        "react-hooks": reactHooks,
         import: importPlugin,
         "jsx-a11y": jsxA11y,
       },
@@ -187,7 +190,7 @@ export function createReactConfig(options = {}) {
         ...ignores,
       ],
     },
-  );
+  ];
 }
 
 /**

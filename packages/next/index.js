@@ -97,9 +97,7 @@ const frontendRules = {
     { checksVoidReturn: { attributes: false } },
   ],
   "@typescript-eslint/no-floating-promises": "warn",
-
-  // i18next rules (disabled by default, enable in project if needed)
-  "i18next/no-literal-string": "off",
+  "@typescript-eslint/no-confusing-void-expression": "off",
 };
 
 /**
@@ -120,16 +118,18 @@ const frontendRules = {
 export function createNextConfig(options = {}) {
   const { ignores = [] } = options;
 
-  return tseslint.config(
+  return [
     // Next.js flat config
     nextPlugin.flatConfig.recommended,
     nextPlugin.flatConfig.coreWebVitals,
+
+    // React hooks recommended config (includes plugin and rules)
+    reactHooks.configs.flat.recommended,
 
     // React and related plugins
     {
       plugins: {
         react,
-        "react-hooks": reactHooks,
         import: importPlugin,
         "jsx-a11y": jsxA11y,
       },
@@ -157,8 +157,8 @@ export function createNextConfig(options = {}) {
 
     // Base configs
     eslint.configs.recommended,
-    tseslint.configs.strictTypeChecked,
-    tseslint.configs.stylistic,
+    ...tseslint.configs.strictTypeChecked,
+    ...tseslint.configs.stylistic,
     prettier,
     simpleImportSortConfig,
     security.configs.recommended,
@@ -210,8 +210,8 @@ export function createNextConfig(options = {}) {
         "out/**",
         ...ignores,
       ],
-    }
-  );
+    },
+  ];
 }
 
 /**
