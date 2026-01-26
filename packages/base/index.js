@@ -6,7 +6,9 @@
  */
 
 import eslint from "@eslint/js";
+import markdown from "@eslint/markdown";
 import prettier from "eslint-config-prettier";
+import importPlugin from "eslint-plugin-import";
 import noUnsanitized from "eslint-plugin-no-unsanitized";
 import security from "eslint-plugin-security";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -115,7 +117,7 @@ export const sonarjsRules = {
   "sonarjs/no-nested-conditional": "off",
   "sonarjs/no-unused-vars": "off", // handled by @typescript-eslint/no-unused-vars
   "sonarjs/fixme-tag": "warn",
-  "sonarjs/deprecation": "warn",
+  "sonarjs/deprecation": "off", // handled by @typescript-eslint/no-deprecated
 };
 
 /**
@@ -143,6 +145,12 @@ export const baseConfig = [
   security.configs.recommended,
   noUnsanitized.configs.recommended,
   sonarjs.configs.recommended,
+  ...markdown.configs.recommended,
+  {
+    plugins: {
+      import: importPlugin,
+    },
+  },
   {
     languageOptions: {
       parserOptions: {

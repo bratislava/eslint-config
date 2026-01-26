@@ -8,7 +8,6 @@
 import { baseConfig } from "@bratislava/eslint-config";
 import eslintNestJs from "@darraghor/eslint-plugin-nestjs-typed";
 import json from "@eslint/json";
-import markdown from "@eslint/markdown";
 import jest from "eslint-plugin-jest";
 import globals from "globals";
 
@@ -72,9 +71,6 @@ export function createNestConfig(options = {}) {
 
     // NestJS plugin
     eslintNestJs.configs.flatRecommended,
-
-    // Markdown support
-    ...markdown.configs.recommended,
 
     // JSON support
     {

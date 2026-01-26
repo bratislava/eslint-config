@@ -7,7 +7,6 @@
 
 import { baseConfig } from "@bratislava/eslint-config";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
-import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -107,11 +106,8 @@ export function createReactConfig(options = {}) {
     // JSX A11y recommended config
     jsxA11y.flatConfigs.recommended,
 
-    // Import rules and plugins
+    // Import rules (plugin registered in base config)
     {
-      plugins: {
-        import: importPlugin,
-      },
       rules: {
         ...importRules,
       },

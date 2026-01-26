@@ -107,6 +107,8 @@ export default reactConfig;
 - **No-unsanitized** plugin for preventing XSS
 - **SonarJS** plugin for code quality
 - **Simple import sort** for consistent import ordering
+- **Import** plugin for import/export linting
+- **Markdown** linting support
 
 ### NestJS Config (@bratislava/eslint-config-nest)
 
@@ -115,7 +117,6 @@ Everything in base, plus:
 - **NestJS Typed** plugin for NestJS-specific rules
 - **Jest** plugin for test files
 - **JSON** linting support
-- **Markdown** linting support
 - `no-console: error` (enforces logger usage)
 - **Requires Node >= 22** (due to @darraghor/eslint-plugin-nestjs-typed)
 
@@ -126,7 +127,6 @@ Everything in base, plus:
 - **Next.js** plugin with recommended and Core Web Vitals rules
 - **React** and **React Hooks** plugins
 - **JSX A11y** for accessibility
-- **Import** plugin
 - **i18next** plugin for internationalization
 - **TanStack Query** plugin
 - `no-console: warn`
@@ -137,7 +137,6 @@ Everything in base, plus:
 
 - **React** and **React Hooks** plugins
 - **JSX A11y** for accessibility
-- **Import** plugin
 - **TanStack Query** plugin
 - `no-console: warn`
 

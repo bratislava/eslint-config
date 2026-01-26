@@ -9,7 +9,6 @@ import { baseConfig } from "@bratislava/eslint-config";
 import nextPlugin from "@next/eslint-plugin-next";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
 import i18next from "eslint-plugin-i18next";
-import importPlugin from "eslint-plugin-import";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -120,11 +119,8 @@ export function createNextConfig(options = {}) {
     // JSX A11y recommended config
     jsxA11y.flatConfigs.recommended,
 
-    // Import rules and plugins
+    // Import rules (plugin registered in base config)
     {
-      plugins: {
-        import: importPlugin,
-      },
       rules: {
         ...importRules,
       },
@@ -145,7 +141,7 @@ export function createNextConfig(options = {}) {
     ...tanstackQuery.configs["flat/recommended"],
     ...tailwindcss.configs["flat/recommended"],
 
-    // Frontend rules and overrieds
+    // Frontend rules and overrides
     {
       rules: {
         ...frontendRules,
