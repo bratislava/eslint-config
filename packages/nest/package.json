@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/eslint-config-nest",
-  "version": "6.0.0",
+  "version": "0.7.1",
   "description": "ESLint configuration for NestJS backend projects",
   "keywords": [
     "eslint",
@@ -30,7 +30,7 @@
     "typescript": ">= 5"
   },
   "dependencies": {
-    "@bratislava/eslint-config": "6.0.0",
+    "@bratislava/eslint-config": "0.7.0",
     "@darraghor/eslint-plugin-nestjs-typed": "7.1.3",
     "@eslint/json": "0.14.0",
     "eslint-plugin-jest": "28.13.5",

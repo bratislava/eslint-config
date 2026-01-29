@@ -70,7 +70,7 @@ export function createNestConfig(options = {}) {
     ...baseConfig,
 
     // NestJS plugin
-    eslintNestJs.configs.flatRecommended,
+    ...eslintNestJs.configs.flatRecommended,
 
     // JSON support
     {

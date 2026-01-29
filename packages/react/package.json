@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/eslint-config-react",
-  "version": "6.0.0",
+  "version": "0.7.0",
   "description": "ESLint configuration for React projects (without Next.js)",
   "keywords": [
     "eslint",
@@ -29,7 +29,7 @@
     "typescript": ">= 5"
   },
   "dependencies": {
-    "@bratislava/eslint-config": "6.0.0",
+    "@bratislava/eslint-config": "0.7.0",
     "@tanstack/eslint-plugin-query": "5.91.2",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.5",

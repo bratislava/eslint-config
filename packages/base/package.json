@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/eslint-config",
-  "version": "6.0.0",
+  "version": "0.7.0",
   "description": "Base ESLint configuration for Bratislava projects",
   "keywords": [
     "eslint",

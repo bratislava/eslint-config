@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/eslint-config-next",
-  "version": "6.0.0",
+  "version": "0.7.0",
   "description": "ESLint configuration for Next.js frontend projects",
   "keywords": [
     "eslint",
@@ -31,7 +31,7 @@
     "typescript": ">= 5"
   },
   "dependencies": {
-    "@bratislava/eslint-config": "6.0.0",
+    "@bratislava/eslint-config": "0.7.0",
     "@next/eslint-plugin-next": "15.5.2",
     "@tanstack/eslint-plugin-query": "5.91.2",
     "eslint-plugin-i18next": "6.1.3",
