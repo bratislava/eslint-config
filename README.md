@@ -180,6 +180,14 @@ All packages require:
 
 The NestJS package additionally requires Node >= 22.
 
+## Troubleshooting
+
+### Eslint 9 cannot find config (Windows, VS Code) 
+
+After upgrading to eslint9 on the Bratislava website, we encountered an issue on Windows where linting via CLI ran correctly and found all errors, but they weren't displayed directly when editing files - no squiggly lines appeared.
+You can verify this by, for example, taking a component and changing the order of imports at the top. This should throw an eslint error on most projects - check via npm run lint if it throws in the terminal, and whether it also shows directly in the open file. 
+It should be fixed by adding `"eslint.useFlatConfig": true` to Folder Settings. It needs to be in folder settings because this is only a problem for eslint9, and we also have projects where eslint8 is still used. We haven't found a better fix yet.
+
 ## Publishing
 
 ### Prerequisites
