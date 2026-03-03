@@ -40,6 +40,7 @@ export const typescriptRules = {
   "@typescript-eslint/no-loop-func": "error",
   "no-shadow": "off",
   "@typescript-eslint/no-shadow": "error",
+  "require-await": "off",
   "@typescript-eslint/require-await": "error",
 
   // Other @typescript-eslint rules
@@ -101,7 +102,6 @@ export const eslintRules = {
   "prefer-const": "error",
   "prefer-object-spread": "error",
   "prefer-template": "error",
-  "require-await": "error",
   yoda: "error",
 };
 
