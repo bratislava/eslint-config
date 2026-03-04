@@ -128,7 +128,6 @@ export const disabledRules = {
   "class-methods-use-this": "off",
   "no-useless-catch": "off",
   "no-await-in-loop": "off",
-  "@typescript-eslint/return-await": "off",
   "@typescript-eslint/explicit-function-return-type": "off",
 };
 
