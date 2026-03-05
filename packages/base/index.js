@@ -40,6 +40,7 @@ export const typescriptRules = {
   "@typescript-eslint/no-loop-func": "error",
   "no-shadow": "off",
   "@typescript-eslint/no-shadow": "error",
+  "require-await": "off",
   "@typescript-eslint/require-await": "error",
 
   // Other @typescript-eslint rules
@@ -82,6 +83,7 @@ export const eslintRules = {
   eqeqeq: ["error", "smart"],
   "guard-for-in": "error",
   "new-cap": ["error", { capIsNew: false }],
+  "no-await-in-loop": "error",
   "no-caller": "error",
   "no-div-regex": "error",
   "no-else-return": "error",
@@ -101,7 +103,6 @@ export const eslintRules = {
   "prefer-const": "error",
   "prefer-object-spread": "error",
   "prefer-template": "error",
-  "require-await": "error",
   yoda: "error",
 };
 
@@ -127,8 +128,6 @@ export const disabledRules = {
   "max-classes-per-file": "off",
   "class-methods-use-this": "off",
   "no-useless-catch": "off",
-  "no-await-in-loop": "off",
-  "@typescript-eslint/return-await": "off",
   "@typescript-eslint/explicit-function-return-type": "off",
 };
 
