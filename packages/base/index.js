@@ -87,7 +87,7 @@ export const eslintRules = {
   "no-caller": "error",
   "no-div-regex": "error",
   "no-else-return": "error",
-  "no-implicit-coercion": "error",
+  "no-implicit-coercion": ["error", { boolean: false }],
   "no-invalid-this": "error",
   "no-lonely-if": "error",
   "no-param-reassign": "error",

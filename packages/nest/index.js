@@ -26,10 +26,6 @@ const nestRules = {
 const backendRules = {
   // Enforce logger use instead of console
   "no-console": "error",
-  // Allow usage of !! instead of Boolean()
-  "no-implicit-coercion": ["error", {
-    "boolean": false,
-  }]
 };
 
 /**
