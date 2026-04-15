@@ -141,6 +141,7 @@ export function createReactConfig(options = {}) {
       rules: {
         ...frontendRules,
         ...reactRules,
+        "tailwindcss/migration-from-tailwind-2": "off",
         "sonarjs/different-types-comparison": "off", // TODO consider removing
       },
     },
