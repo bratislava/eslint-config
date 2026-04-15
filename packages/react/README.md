@@ -54,26 +54,33 @@ Tailwind v4 users must include the following settings in their `eslint.config.mj
 
 ```javascript
 // eslint.config.mjs
-{
-  settings: {
-    tailwindcss: {
-      // The absolute path pointing to your main Tailwind CSS v4 config file.
-      // It must be a `.css` file (v4), not a `.js` file (v3)
-      // REQUIRED, default value will not help
-      cssConfigPath: dirname(fileURLToPath(import.meta.url)) + "/styles/tailwind.css",
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { createReactConfig } from "@bratislava/eslint-config-react";
 
-      // Optional, generally not needed in bratislava FE projects:
+export default [
+  ...createReactConfig(),
+  {
+    settings: {
+      tailwindcss: {
+        // The absolute path pointing to your main Tailwind CSS v4 config file.
+        // It must be a `.css` file (v4), not a `.js` file (v3)
+        // REQUIRED, default value will not help
+        cssConfigPath: dirname(fileURLToPath(import.meta.url)) + "/styles/tailwind.css",
 
-      // Attributes/props that could contain Tailwind CSS classes...
-      // Optional, default values: ["class", "className", "ngClass", "@apply"]
-      // attributes: ["..."],
+        // Optional, generally not needed in bratislava FE projects:
 
-      // Functions/tagFunctions that will be parsed by the plugin.
-      // Optional, default values: ["classnames", "clsx", "ctl", "cva", "tv", "tw"]
-      // functions: ["..."]
+        // Attributes/props that could contain Tailwind CSS classes...
+        // Optional, default values: ["class", "className", "ngClass", "@apply"]
+        // attributes: ["..."],
+
+        // Functions/tagFunctions that will be parsed by the plugin.
+        // Optional, default values: ["classnames", "clsx", "ctl", "cva", "tv", "tw"]
+        // functions: ["..."]
+      },
     },
-  }
-}
+  },
+];
 ```
 
 Additionally, v4 requires an empty `tailwind.config.js` at the project root, otherwise the plugin throws "Cannot resolve default tailwindcss config path" warnings. See [this issue](https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/431) for details.
@@ -97,7 +104,7 @@ Everything from `@bratislava/eslint-config` (base), plus:
 ## Peer Dependencies
 
 - `eslint` >= 9
-- `eslint-plugin-tailwindcss` >= 3.18.3
+- `eslint-plugin-tailwindcss` >= 3.18.3 or >= 4.0.0-0 (beta)
 - `typescript` >= 5
 
 ## License
