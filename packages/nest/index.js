@@ -42,6 +42,9 @@ const jestConfig = {
     "jest/unbound-method": "error",
     // Allow unused vars in tests (common with mocking)
     "@typescript-eslint/no-unused-vars": "warn",
+    "dot-notation": "off", // to test private methods
+    "sonarjs/no-nested-functions": "off",
+    "@typescript-eslint/no-misused-spread": "off", // spreading DTOs in tests is fine, prototype is irrelevant
   },
 };
 
