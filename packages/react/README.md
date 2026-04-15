@@ -65,8 +65,9 @@ export default [
       tailwindcss: {
         // The absolute path pointing to your main Tailwind CSS v4 config file.
         // It must be a `.css` file (v4), not a `.js` file (v3)
-        // REQUIRED, default value will not help
-        cssConfigPath: dirname(fileURLToPath(import.meta.url)) + "/styles/tailwind.css",
+        // Use `config` instead of `cssConfigPath` despite what the v4 docs say,
+        // see https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/431
+        config: dirname(fileURLToPath(import.meta.url)) + "/styles/tailwind.css",
 
         // Optional, generally not needed in bratislava FE projects:
 
@@ -81,13 +82,6 @@ export default [
     },
   },
 ];
-```
-
-Additionally, v4 requires an empty `tailwind.config.js` at the project root, otherwise the plugin throws "Cannot resolve default tailwindcss config path" warnings. See [this issue](https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/431) for details.
-
-```javascript
-// tailwind.config.js
-export default {};
 ```
 
 ## What's Included
