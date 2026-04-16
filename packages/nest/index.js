@@ -5,11 +5,13 @@
  * Extends base config with NestJS-specific rules and plugins.
  */
 
-import { baseConfig } from "@bratislava/eslint-config";
+import { baseConfig, prettierBase } from "@bratislava/eslint-config";
 import eslintNestJs from "@darraghor/eslint-plugin-nestjs-typed";
 import json from "@eslint/json";
 import jest from "eslint-plugin-jest";
 import globals from "globals";
+
+export { prettierBase };
 
 /**
  * NestJS-specific rules
