@@ -147,6 +147,7 @@ export function createNextConfig(options = {}) {
         ...frontendRules,
         ...reactRules,
         ...nextRules,
+        "tailwindcss/migration-from-tailwind-2": "off",
         "sonarjs/different-types-comparison": "off", // TODO consider removing
       },
     },
