@@ -32,6 +32,22 @@ import {
 } from "@bratislava/eslint-config";
 ```
 
+## Prettier
+
+`prettierBase` is a shared Prettier config object. Spread it in your `prettier.config.mjs` and add project-specific options:
+
+```js
+// prettier.config.mjs
+import { prettierBase } from '@bratislava/eslint-config'
+
+export default {
+  ...prettierBase,
+  // project-specific overrides, e.g.:
+  // plugins: ['prettier-plugin-tailwindcss'],
+  // tailwindStylesheet: './src/pages/globals.css',
+}
+```
+
 ## What's Included
 
 - **ESLint recommended** rules

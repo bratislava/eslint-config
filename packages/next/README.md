@@ -84,6 +84,23 @@ export default [
 ];
 ```
 
+## Prettier
+
+`prettierBase` is re-exported from this package. Spread it in your `prettier.config.mjs` and add project-specific options:
+
+```js
+// prettier.config.mjs
+import { prettierBase } from '@bratislava/eslint-config-next'
+
+export default {
+  ...prettierBase,
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['clsx', 'cn'],
+  // project-specific:
+  tailwindStylesheet: './src/pages/globals.css',
+}
+```
+
 ## What's Included
 
 Everything from `@bratislava/eslint-config` (base), plus:

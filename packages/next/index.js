@@ -5,7 +5,7 @@
  * Extends base config with Next.js, React, and i18n-specific rules.
  */
 
-import { baseConfig } from "@bratislava/eslint-config";
+import { baseConfig, prettierBase } from "@bratislava/eslint-config";
 import nextPlugin from "@next/eslint-plugin-next";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
 import i18next from "eslint-plugin-i18next";
@@ -14,6 +14,8 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import globals from "globals";
+
+export { prettierBase };
 
 /**
  * React-specific rules overrides

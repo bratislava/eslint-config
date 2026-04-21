@@ -5,13 +5,15 @@
  * Extends base config with React-specific rules and plugins.
  */
 
-import { baseConfig } from "@bratislava/eslint-config";
+import { baseConfig, prettierBase } from "@bratislava/eslint-config";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import globals from "globals";
+
+export { prettierBase };
 
 /**
  * React-specific rules overrides
