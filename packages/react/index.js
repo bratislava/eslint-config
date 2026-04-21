@@ -10,7 +10,7 @@ import tanstackQuery from "@tanstack/eslint-plugin-query";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import tailwindcss from "eslint-plugin-tailwindcss";
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import globals from "globals";
 
 export { prettierBase };
@@ -98,7 +98,7 @@ export function createReactConfig(options = {}) {
 
     // React-specific configs
     ...tanstackQuery.configs["flat/recommended"],
-    ...tailwindcss.configs["flat/recommended"],
+    betterTailwindcss.configs.recommended,
 
     // React & React hooks recommended configs
     reactHooks.configs.flat.recommended,
@@ -143,7 +143,7 @@ export function createReactConfig(options = {}) {
       rules: {
         ...frontendRules,
         ...reactRules,
-        "tailwindcss/migration-from-tailwind-2": "off",
+
         "sonarjs/different-types-comparison": "off", // TODO consider removing
       },
     },

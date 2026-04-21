@@ -1,6 +1,6 @@
 {
   "name": "@bratislava/eslint-config-next",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "ESLint configuration for Next.js frontend projects",
   "keywords": [
     "eslint",
@@ -28,11 +28,11 @@
   ],
   "peerDependencies": {
     "eslint": ">= 9",
-    "eslint-plugin-tailwindcss": ">= 3.18.3 || >= 4.0.0-0",
+    "eslint-plugin-better-tailwindcss": ">= 4.0.0",
     "typescript": ">= 5"
   },
   "dependencies": {
-    "@bratislava/eslint-config": "0.13.0",
+    "@bratislava/eslint-config": "0.14.0",
     "@next/eslint-plugin-next": "15.5.2",
     "@tanstack/eslint-plugin-query": "5.91.2",
     "eslint-plugin-i18next": "6.1.3",
