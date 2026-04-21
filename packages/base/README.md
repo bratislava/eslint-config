@@ -34,10 +34,10 @@ import {
 
 ## Prettier
 
-`prettierBase` is a shared Prettier config object. Spread it in your `.prettierrc.js` and add project-specific options:
+`prettierBase` is a shared Prettier config object. Spread it in your `prettier.config.mjs` and add project-specific options:
 
 ```js
-// .prettierrc.js
+// prettier.config.mjs
 import { prettierBase } from '@bratislava/eslint-config'
 
 export default {

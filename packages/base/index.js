@@ -133,20 +133,20 @@ export const disabledRules = {
 
 /**
  * Shared Prettier base configuration for all Bratislava projects.
- * Spread this in your .prettierrc.js and add project-specific options.
+ * Spread this in your Prettier config and add project-specific options.
  *
  * @example
- * // .prettierrc.js
+ * // prettier.config.mjs
  * import { prettierBase } from '@bratislava/eslint-config'
  * export default { ...prettierBase, tailwindStylesheet: './src/pages/globals.css' }
  */
 export const prettierBase = {
-  trailingComma: 'all',
+  trailingComma: "all",
   tabWidth: 2,
   semi: false,
   singleQuote: true,
   printWidth: 100,
-}
+};
 
 /**
  * Base configuration for all projects.
