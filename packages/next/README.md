@@ -7,7 +7,7 @@ Part of a monorepo of shareable ESLint configurations — see the [full repo](ht
 ## Installation
 
 ```bash
-npm install --save-dev @bratislava/eslint-config-next eslint typescript eslint-plugin-tailwindcss
+npm install --save-dev @bratislava/eslint-config-next eslint typescript eslint-plugin-better-tailwindcss
 ```
 
 ## Usage
@@ -32,57 +32,13 @@ export default createNextConfig({
 
 ## Tailwind CSS
 
-`eslint-plugin-tailwindcss` is a peer dependency — you install the version that matches your project's Tailwind version.
-
-### Tailwind v3
+`eslint-plugin-better-tailwindcss` is a peer dependency. It supports both Tailwind v3 and v4 without separate beta versions.
 
 ```bash
-npm install --save-dev eslint-plugin-tailwindcss
+npm install --save-dev eslint-plugin-better-tailwindcss
 ```
 
-No additional configuration needed — the preconfigured rules work out of the box with v3.
-
-### Tailwind v4
-
-```bash
-npm install --save-dev eslint-plugin-tailwindcss@beta
-```
-
-The beta version might have issues — see the [v4 branch](https://github.com/francoismassart/eslint-plugin-tailwindcss/tree/alpha/v4) for more info.
-
-Tailwind v4 users must include the following settings in their `eslint.config.mjs`:
-
-```javascript
-// eslint.config.mjs
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { createNextConfig } from "@bratislava/eslint-config-next";
-
-export default [
-  ...createNextConfig(),
-  {
-    settings: {
-      tailwindcss: {
-        // The absolute path pointing to your main Tailwind CSS v4 config file.
-        // It must be a `.css` file (v4), not a `.js` file (v3)
-        // Use `config` instead of `cssConfigPath` despite what the v4 docs say,
-        // see https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/431
-        config: dirname(fileURLToPath(import.meta.url)) + "/styles/tailwind.css",
-
-        // Optional, generally not needed in bratislava FE projects:
-
-        // Attributes/props that could contain Tailwind CSS classes...
-        // Optional, default values: ["class", "className", "ngClass", "@apply"]
-        // attributes: ["..."],
-
-        // Functions/tagFunctions that will be parsed by the plugin.
-        // Optional, default values: ["classnames", "clsx", "ctl", "cva", "tv", "tw"]
-        // functions: ["..."]
-      },
-    },
-  },
-];
-```
+No additional configuration needed — the recommended ruleset works out of the box.
 
 ## Prettier
 
@@ -117,7 +73,7 @@ Everything from `@bratislava/eslint-config` (base), plus:
 ## Peer Dependencies
 
 - `eslint` >= 9
-- `eslint-plugin-tailwindcss` >= 3.18.3 or >= 4.0.0-0 (beta)
+- `eslint-plugin-better-tailwindcss` >= 4.0.0
 - `typescript` >= 5
 
 ## License
