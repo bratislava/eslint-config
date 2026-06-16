@@ -8,11 +8,11 @@
 import { baseConfig, prettierBase } from "@bratislava/eslint-config";
 import nextPlugin from "@next/eslint-plugin-next";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import i18next from "eslint-plugin-i18next";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import globals from "globals";
 
 export { prettierBase };

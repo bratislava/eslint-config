@@ -7,10 +7,10 @@
 
 import { baseConfig, prettierBase } from "@bratislava/eslint-config";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import globals from "globals";
 
 export { prettierBase };
