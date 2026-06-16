@@ -13,6 +13,7 @@
     "packages/*"
   ],
   "scripts": {
+    "test": "node --test './**/*.spec.js'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "publish:all": "npm publish --access public --workspace packages/base && npm publish --access public --workspace packages/nest && npm publish --access public --workspace packages/next && npm publish --access public --workspace packages/react"
