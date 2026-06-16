@@ -101,7 +101,7 @@ export function createReactConfig(options = {}) {
     betterTailwindcss.configs.recommended,
 
     // React & React hooks recommended configs
-    reactHooks.configs.flat.recommended,
+    reactHooks.configs['recommended-latest'],
     react.configs.flat.recommended,
     react.configs.flat["jsx-runtime"], // Recommended by the docs if using React 17+
 
