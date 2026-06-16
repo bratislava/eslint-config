@@ -110,8 +110,8 @@ export function createNextConfig(options = {}) {
     ...baseConfig,
 
     // Next.js flat config
-    nextPlugin.flatConfig.recommended,
-    nextPlugin.flatConfig.coreWebVitals,
+    nextPlugin.configs['recommended'],
+    nextPlugin.configs['core-web-vitals'],
 
     // React & React hooks recommended configs
     reactHooks.configs.flat.recommended,
