@@ -7,10 +7,10 @@
 
 import { baseConfig, prettierBase } from "@bratislava/eslint-config";
 import tanstackQuery from "@tanstack/eslint-plugin-query";
+import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import betterTailwindcss from "eslint-plugin-better-tailwindcss";
 import globals from "globals";
 
 export { prettierBase };
@@ -101,7 +101,7 @@ export function createReactConfig(options = {}) {
     betterTailwindcss.configs.recommended,
 
     // React & React hooks recommended configs
-    reactHooks.configs['recommended-latest'],
+    reactHooks.configs.flat['recommended-latest'],
     react.configs.flat.recommended,
     react.configs.flat["jsx-runtime"], // Recommended by the docs if using React 17+
 
