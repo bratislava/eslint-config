@@ -104,6 +104,7 @@ export const eslintRules = {
   "prefer-object-spread": "error",
   "prefer-template": "error",
   yoda: "error",
+  curly: "error",
 };
 
 /**
