@@ -21,16 +21,16 @@ Install only the package you need:
 
 ```bash
 # For Next.js projects
-npm install --save-dev @bratislava/eslint-config-next eslint typescript
+npm install --save-dev @bratislava/eslint-config-next eslint typescript typescript-eslint
 
 # For NestJS projects (requires Node >= 22)
-npm install --save-dev @bratislava/eslint-config-nest eslint typescript
+npm install --save-dev @bratislava/eslint-config-nest eslint typescript typescript-eslint
 
 # For React projects (without Next.js)
-npm install --save-dev @bratislava/eslint-config-react eslint typescript
+npm install --save-dev @bratislava/eslint-config-react eslint typescript typescript-eslint
 
 # For base config only
-npm install --save-dev @bratislava/eslint-config eslint typescript
+npm install --save-dev @bratislava/eslint-config eslint typescript typescript-eslint
 ```
 
 ## Usage
@@ -177,8 +177,13 @@ All packages require:
 
 - `eslint` >= 9
 - `typescript` >= 5
+- `typescript-eslint` ^8.61.0
 
 The NestJS package additionally requires Node >= 22.
+
+All other plugins are locked as regular dependencies of the configs, so their versions are managed here in one place. `typescript-eslint` is the exception: it declares its own peer dependency on `typescript` with an upper bound, so it must be installed by the consuming project to match that project's TypeScript version. This way, upgrading TypeScript in a repo only requires bumping `typescript-eslint` there — no `overrides` and no waiting for a new release of this config.
+
+When a config starts using a rule introduced in a newer `typescript-eslint` version, the minimum of the peer range is bumped in the same release, so an incompatible combination fails at install time instead of at lint time.
 
 ## Troubleshooting
 
