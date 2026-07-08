@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.34.0",
+    "@next/eslint-plugin-next": "16.2.9",
     "@eslint/markdown": "8.0.2",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",

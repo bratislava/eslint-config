@@ -20,8 +20,8 @@ Each package only includes dependencies it needs, so you won't install NestJS pl
 Install only the package you need:
 
 ```bash
-# For Next.js projects
-npm install --save-dev @bratislava/eslint-config-next eslint typescript typescript-eslint
+# For Next.js projects (pin @next/eslint-plugin-next to your Next.js version)
+npm install --save-dev @bratislava/eslint-config-next eslint typescript typescript-eslint @next/eslint-plugin-next
 
 # For NestJS projects (requires Node >= 22)
 npm install --save-dev @bratislava/eslint-config-nest eslint typescript typescript-eslint
@@ -180,6 +180,8 @@ All packages require:
 - `typescript-eslint` ^8.61.0
 
 The NestJS package additionally requires Node >= 22.
+
+The Next.js package additionally requires `@next/eslint-plugin-next` >= 16 (the first version with flat-config presets). It is versioned in lockstep with Next.js itself, so pin it to match your project's `next` version — new rules that Next.js adds to its `recommended`/`core-web-vitals` presets in minor releases are picked up automatically, without waiting for a release of this config.
 
 All other plugins are locked as regular dependencies of the configs, so their versions are managed here in one place. `typescript-eslint` is the exception: it declares its own peer dependency on `typescript` with an upper bound, so it must be installed by the consuming project to match that project's TypeScript version. This way, upgrading TypeScript in a repo only requires bumping `typescript-eslint` there — no `overrides` and no waiting for a new release of this config.
 
