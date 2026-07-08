@@ -39,6 +39,7 @@ export const reactRules = {
  * Import plugin rules (relaxed for Next.js)
  */
 export const importRules = {
+  "import/no-anonymous-default-export": "warn",
   "import/prefer-default-export": "off",
   "import/extensions": "off",
   "import/no-unresolved": "off",
@@ -134,6 +135,15 @@ export function createNextConfig(options = {}) {
         globals: {
           ...globals.browser,
           ...globals.node,
+        },
+      },
+    },
+
+    // React settings
+    {
+      settings: {
+        react: {
+          version: "detect",
         },
       },
     },
