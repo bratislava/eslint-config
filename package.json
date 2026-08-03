@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-monorepo",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "private": true,
   "description": "Shareable ESLint configurations for Bratislava projects",
   "license": "EUPL-1.2",
@@ -19,14 +19,14 @@
     "publish:all": "npm publish --access public --workspace packages/base && npm publish --access public --workspace packages/nest && npm publish --access public --workspace packages/next && npm publish --access public --workspace packages/react"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.4",
-    "@next/eslint-plugin-next": "16.2.10",
+    "@eslint/js": "9.39.5",
+    "@next/eslint-plugin-next": "16.2.12",
     "@eslint/markdown": "8.0.3",
-    "eslint": "9.39.4",
+    "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-simple-import-sort": "13.0.0",
-    "globals": "17.7.0",
-    "typescript-eslint": "8.63.0"
+    "globals": "17.9.0",
+    "typescript-eslint": "8.65.0"
   },
   "engines": {
     "node": ">=20"
