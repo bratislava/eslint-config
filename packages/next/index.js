@@ -86,6 +86,8 @@ const frontendRules = {
   "@typescript-eslint/no-confusing-void-expression": "off",
 
   "jsx-a11y/control-has-associated-label": "warn",
+
+  "better-tailwindcss/enforce-consistent-line-wrapping": "off",
 };
 
 /**
