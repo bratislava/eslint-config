@@ -8,6 +8,7 @@
 import { baseConfig, prettierBase } from "@bratislava/eslint-config";
 import eslintNestJs from "@darraghor/eslint-plugin-nestjs-typed";
 import json from "@eslint/json";
+import vitest from "@vitest/eslint-plugin";
 import jest from "eslint-plugin-jest";
 import globals from "globals";
 
@@ -31,24 +32,50 @@ const backendRules = {
 };
 
 /**
- * Jest test file configuration
+ * Rules for test files that don't depend on the test runner
  */
-const jestConfig = {
-  files: ["**/*.spec.ts", "**/*.test.ts"],
-  plugins: {
-    jest,
+const testRules = {
+  // Allow unused vars in tests (common with mocking)
+  "@typescript-eslint/no-unused-vars": "warn",
+  "dot-notation": "off", // to test private methods
+  "sonarjs/no-nested-functions": "off",
+  "@typescript-eslint/no-misused-spread": "off", // spreading DTOs in tests is fine, prototype is irrelevant
+};
+
+/**
+ * Supported test runners: plugin and replacements for @typescript-eslint/unbound-method.
+ */
+const testRunners = {
+  jest: {
+    plugin: jest,
+    rules: { "jest/unbound-method": "error" },
   },
-  rules: {
-    // Use jest version of unbound-method
-    "@typescript-eslint/unbound-method": "off",
-    "jest/unbound-method": "error",
-    // Allow unused vars in tests (common with mocking)
-    "@typescript-eslint/no-unused-vars": "warn",
-    "dot-notation": "off", // to test private methods
-    "sonarjs/no-nested-functions": "off",
-    "@typescript-eslint/no-misused-spread": "off", // spreading DTOs in tests is fine, prototype is irrelevant
+  vitest: {
+    plugin: vitest,
+    rules: { "vitest/unbound-method": "error" },
   },
 };
+
+/**
+ * Test file configuration for the given runner.
+ *
+ * @param {"jest" | "vitest"} testRunner
+ */
+function createTestConfig(testRunner) {
+  const { plugin, rules } = testRunners[testRunner];
+
+  return {
+    files: ["**/*.spec.ts", "**/*.test.ts"],
+    plugins: {
+      [testRunner]: plugin,
+    },
+    rules: {
+      "@typescript-eslint/unbound-method": "off",
+      ...rules,
+      ...testRules,
+    },
+  };
+}
 
 /**
  * Creates a NestJS ESLint configuration.
@@ -56,6 +83,8 @@ const jestConfig = {
  * @param {Object} options - Configuration options
  * @param {string} [options.tsconfigRootDir] - Root directory for TypeScript config (defaults to process.cwd())
  * @param {string[]} [options.ignores] - Additional patterns to ignore
+ * @param {"jest" | "vitest"} [options.testRunner] - Test runner whose ESLint rules apply to
+ *   test files (defaults to "jest")
  * @returns {Array} ESLint flat config array
  *
  * @example
@@ -68,7 +97,17 @@ const jestConfig = {
  * })
  */
 export function createNestConfig(options = {}) {
-  const { tsconfigRootDir = process.cwd(), ignores = [] } = options;
+  const {
+    tsconfigRootDir = process.cwd(),
+    ignores = [],
+    testRunner = "jest",
+  } = options;
+
+  if (!Object.hasOwn(testRunners, testRunner)) {
+    throw new Error(
+      `@bratislava/eslint-config-nest: unknown testRunner "${testRunner}", expected one of ${Object.keys(testRunners).join(", ")}`,
+    );
+  }
 
   return [
     // Base configuration (eslint, typescript, prettier, security, sonarjs, etc.)
@@ -110,8 +149,8 @@ export function createNestConfig(options = {}) {
       },
     },
 
-    // Jest config for test files
-    jestConfig,
+    // Test file config (Jest or Vitest)
+    createTestConfig(testRunner),
 
     // Default ignores
     {
