@@ -45,6 +45,7 @@ import { createNestConfig } from "@bratislava/eslint-config-nest";
 export default createNestConfig({
   tsconfigRootDir: import.meta.dirname,
   ignores: ["src/generated-clients/*"],
+  testRunner: "vitest", // optional, defaults to "jest"
 });
 ```
 
@@ -115,7 +116,7 @@ export default reactConfig;
 Everything in base, plus:
 
 - **NestJS Typed** plugin for NestJS-specific rules
-- **Jest** plugin for test files
+- **Jest** or **Vitest** plugin for test files: Jest by default, set `testRunner: "vitest"` in `createNestConfig` for Vitest projects. Both plugins ship with this package, so don't install or register them in your project.
 - **JSON** linting support
 - `no-console: error` (enforces logger usage)
 - **Requires Node >= 22** (due to @darraghor/eslint-plugin-nestjs-typed)
