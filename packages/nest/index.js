@@ -32,11 +32,6 @@ const backendRules = {
 };
 
 /**
- * Supported test runners
- */
-const TEST_RUNNERS = ["jest", "vitest"];
-
-/**
  * Rules for test files that don't depend on the test runner
  */
 const testRules = {
@@ -48,30 +43,35 @@ const testRules = {
 };
 
 /**
- * Runner-specific replacements for @typescript-eslint/unbound-method.
+ * Supported test runners: plugin and replacements for @typescript-eslint/unbound-method.
  */
-const testRunnerRules = {
-  jest: { "jest/unbound-method": "error" },
-  vitest: { "vitest/unbound-method": "error" },
+const testRunners = {
+  jest: {
+    plugin: jest,
+    rules: { "jest/unbound-method": "error" },
+  },
+  vitest: {
+    plugin: vitest,
+    rules: { "vitest/unbound-method": "error" },
+  },
 };
 
 /**
  * Test file configuration for the given runner.
- * Both plugins are always registered so consumer overrides that reference
- * `jest/*` or `vitest/*` rules keep resolving; only the matching rules are enabled.
  *
  * @param {"jest" | "vitest"} testRunner
  */
 function createTestConfig(testRunner) {
+  const { plugin, rules } = testRunners[testRunner];
+
   return {
     files: ["**/*.spec.ts", "**/*.test.ts"],
     plugins: {
-      jest,
-      vitest,
+      [testRunner]: plugin,
     },
     rules: {
       "@typescript-eslint/unbound-method": "off",
-      ...testRunnerRules[testRunner],
+      ...rules,
       ...testRules,
     },
   };
@@ -103,9 +103,9 @@ export function createNestConfig(options = {}) {
     testRunner = "jest",
   } = options;
 
-  if (!TEST_RUNNERS.includes(testRunner)) {
+  if (!Object.hasOwn(testRunners, testRunner)) {
     throw new Error(
-      `@bratislava/eslint-config-nest: unknown testRunner "${testRunner}", expected one of ${TEST_RUNNERS.join(", ")}`,
+      `@bratislava/eslint-config-nest: unknown testRunner "${testRunner}", expected one of ${Object.keys(testRunners).join(", ")}`,
     );
   }
 
