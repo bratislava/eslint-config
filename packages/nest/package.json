@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@bratislava/eslint-config": "0.21.0",
-    "@darraghor/eslint-plugin-nestjs-typed": "7.3.0",
+    "@darraghor/eslint-plugin-nestjs-typed": "7.5.10",
     "@eslint/json": "2.0.1",
     "@vitest/eslint-plugin": "1.6.27",
     "eslint-plugin-jest": "29.16.0",
